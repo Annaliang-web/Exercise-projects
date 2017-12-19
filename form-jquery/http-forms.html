@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <title>Submit HTTP Form</title>
     <script>
         // jQuery
@@ -21,7 +23,6 @@
             // $('#clearFirstName').click(function (event) { //control2
             //     $('#firstname').val('');
             // });
-            console.log('test functions');
             
             $('#errorFirst').hide();
             $('#errorLast').hide();
@@ -39,23 +40,18 @@
 
             $('#firstname').focusout(()=>{
              check_firstname(); //call the function
-             console.log('test functions');
             })
             $('#lastname').focusout(() => {
                 check_lastname();
-                console.log('test functions');
             })
             $('#date').focusout(() => {
                 check_date();
-                console.log('test functions');
             })
             $('#email').focusout(() => {
                 check_email();
-                console.log('test functions');
             })
             $('#phone').focusout(() => {
                 check_phone();
-                console.log('test functions');
             })
 
          function check_firstname(){ 
@@ -82,7 +78,7 @@
                 $('#errorDate').show();
                 errorDate = true;
             }else{
-                $('errorDate').hide();
+                $('#errorDate').hide();
             }
          }
          function check_email() {
@@ -91,7 +87,7 @@
                 $('#errorEmail').show();
                 errorEmail = true;
             }else{
-                $('errorEmail').hide();
+                $('#errorEmail').hide();
             }
          }
          function check_phone() {
@@ -119,7 +115,7 @@
         <h1>Form example</h1>
         <h3>HTTP and Forms with JQuery</h3>
         <!-- <form action="http://httpbin.org/post" method="POST" id="contactform">return json file -->
-        <form action="submitted.html" method="POST" id="contactform"> <!-- return Thank you page -->
+        <form action="thankyou.html" method="POST" id="contactform"> <!-- return Thank you page -->
         <div class="form-group">
             <table>
                 <tr>
