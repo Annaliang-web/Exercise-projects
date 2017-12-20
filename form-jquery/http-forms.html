@@ -9,28 +9,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Submit HTTP Form</title>
     <script>
         // jQuery
         $(document).ready(function () {
-            // $('#contactform').submit(function () { //control1
-            //     if($('#firstname').val()=== ''){
-            //         alert('Must provide first name');
-            //         alert(event.target.value);
-            //         event.preventDefault(); //this controls the submit action and it will wait until the form has valid content
-            //     }  
-            // });
-            // $('#clearFirstName').click(function (event) { //control2
-            //     $('#firstname').val('');
-            // });
-            
-            $('#errorFirst').hide();
-            $('#errorLast').hide();
-            $('#errorDate').hide();
-            $('#errorEmail').hide();
-            $('#errorPhone').hide();
-            $('#nonNumber').hide();
-            
+
             let errorFirst = false;
             let errorLast = false;
             let errorDate = false;
@@ -38,20 +23,58 @@
             let errorPhone = false;
             let nonNumber = false;
 
+            $('#contactForm').submit(()=>{ // SUBMIT button
+                errorFirst = false;
+                errorLast = false;
+                errorDate = false;
+                errorEmail = false;
+                errorPhone = false;
+                nonNumber = false;
+
+                check_firstname(); //fire the function when clicking submit button, the error message shows
+                check_lastname(); //fire the function
+                check_date(); //fire the function
+                check_email(); //fire the function
+                check_phone(); //fire the function
+
+                // if(errorFirst == true || errorLast == true || errorDate == true ||   //why this statement is not working?
+                //    errorEmail == true || errorPhone == true || nonNumber == true){
+                //     event.preventDefault();
+                // }
+                if(errorFirst == false && errorLast == false && errorDate == false &&
+                   errorEmail == false && errorPhone == false && nonNumber == false){
+                    return true;
+                }else{
+                    return false; // return variable to false so that form will be submitted.
+                }
+            });
+
+            $('#clearForm').click(()=>{ // CLEAR button
+                $('input').val('');
+                event.preventDefault();
+            });
+
+            $('#errorFirst').hide();
+            $('#errorLast').hide();
+            $('#errorDate').hide();
+            $('#errorEmail').hide();
+            $('#errorPhone').hide();
+            $('#nonNumber').hide();
+
             $('#firstname').focusout(()=>{
-             check_firstname(); //call the function
+                check_firstname(); //call(fire) the function
             })
             $('#lastname').focusout(() => {
-                check_lastname();
+                check_lastname(); //call the function
             })
             $('#date').focusout(() => {
-                check_date();
+                check_date(); //call the function
             })
             $('#email').focusout(() => {
-                check_email();
+                check_email(); //call the function
             })
             $('#phone').focusout(() => {
-                check_phone();
+                check_phone(); //call the function
             })
 
          function check_firstname(){ 
@@ -82,7 +105,7 @@
             }
          }
          function check_email() {
-            if($('#email').val().length < 1 || $('#email').val().length > 20) {
+            if($('#email').val().length < 1 || $('#email').val().length > 40) {
                 $('#errorEmail').html('Invalid email');
                 $('#errorEmail').show();
                 errorEmail = true;
@@ -105,59 +128,67 @@
             }else{
                $('#nonNumber').hide(); 
             }
-               
          }
         }) //jQuery ends
     </script>
 </head>
 <body>
     <div class="container-fluid">
-        <h1>Form example</h1>
-        <h3>HTTP and Forms with JQuery</h3>
-        <!-- <form action="http://httpbin.org/post" method="POST" id="contactform">return json file -->
-        <form action="thankyou.html" method="POST" id="contactform"> <!-- return Thank you page -->
-        <div class="form-group">
-            <table>
+        <!-- <form action="http://httpbin.org/post" method="POST" id="contactForm">return json file -->
+        <form action="thankyou.html" method="POST" id="contactForm"> <!-- return Thank you page -->
+            <div class="form-group form-container col s12 m2">
+              <table class="z-depth-4">
+                <tr><th></th><th class="text-center">HTTP and Forms with JQuery</th><th></th></tr>
                 <tr>
-                  <td>First Name:</td> 
-                  <td><input type="text" name="first_name" id="firstname" required></td>
+                  <td class="bold">First Name:</td> 
+                  <td><input type="text" name="first_name" id="firstname"></td>
                   <td><span id="errorFirst"></span></td>
                 </tr> 
                 <tr>
-                <td>Last Name:</td>
-                <td><input type="text" name="last_name" id="lastname" required></td>
+                <td class="bold">Last Name:</td>
+                <td><input type="text" name="last_name" id="lastname"></td>
                 <td><span id="errorLast"></span></td>
                 </tr>
                 <tr>
-                  <td>Date of Birth:</td>
-                  <td><input type="date" id="date" required></td>
+                  <td class="bold">Date of Birth:</td>
+                  <td><input type="date" id="date"></td>
                   <td><span id="errorDate"></span></td>
                 </tr>
                 <tr>
-                  <td>Full Address:</td>
-                  <td><input type="text" name="address" id="address" required></td>
+                  <td class="bold">Full Address:</td>
+                  <td><input type="text" name="address" id="address"></td>
                 </tr>
-                  <td>Email:</td>
-                  <td><input type="email" name="email" id="email" required></td>
+                  <td class="bold">Email:</td>
+                  <td><input type="email" name="email" id="email"></td>
                   <td><span id="errorEmail"></span></td>
                 <tr>
-                  <td>Phone:</td>
-                  <td><input type="tel" name="phone" id="phone" maxlength="16" required></td>
+                  <td class="bold">Phone:</td>
+                  <td><input type="tel" name="phone" id="phone"></td>
                   <td><span id="errorPhone"></span></td>
                   <td><span id="nonNumber"></span></td>
                 </tr>
                 <tr>
-                  <td>Message:</td>
-                  <td><textarea type='text' name="message" id="message" cols="70" rows="5" placeholder="Please leave your message..."></textarea></td>
+                  <td class="bold">Message:</td>
+                  <td><textarea type='text' name="message" id="textarea1" class="materialize-textarea" 
+                       data-length="120" placeholder="Please leave your message..."></textarea></td>
                 </tr>  
                 <tr>
-                  <td>Favourite Colour:</td>
-                  <td>Red: <input type="radio" name="favourite_colour" value="red"></td>
-                  <td>Green: <input type="radio" name="favourite_colour" value="green"></td>
-                  <td>Blue: <input type="radio" name="favourite_colour" value="blue"></td>
+                  <td class="bold">Favourite Colour:</td>
+                  <td id="red-margin">
+                    <input type="checkbox" id="red">
+                    <label for="red" class="option-color">Red</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" id="green">
+                    <label for="green" class="option-color">Green</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" id="blue">
+                    <label for="blue" class="option-color">Blue</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  </td>                 
                 </tr> 
                 <tr>
-                  <td><button id="clearFirstName">Clear</button><button type="submit">Submit</button></td>
+                  <!-- <td class="push-button"></td>   -->
+                  <td class="buttons">
+                    <button id="clearForm" class="btn waves-effect waves-light" name="action">Clear</button>
+                    <button type="submit" class="btn waves-effect waves-light" name="action">Submit <i class="material-icons right">send</i></button>  
+                  </td>
                 </tr>
             </table>    
     </div>
