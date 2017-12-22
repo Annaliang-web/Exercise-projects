@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script> <!--Materialize-->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+    crossorigin="anonymous">
+  <script src="webAPI-NASA.js"></script>
+  <title>NASA - A Picture of Day</title>
+  
+</head>
+<body>
+  <div class="parallax-container" style="height: 50%; position:static;">
+    <div class="parallax">     
+      <img id="apodImage" alt="Nasa APOD">
+    </div>
+  </div>
+    <div class="section white">
+      <div class="row container">
+        <h4 class="header" id="apodTitle"></h4>
+        <p id="apodDate" style="float:right;"></p>
+        <p class="grey-text text-darken-3 lighten-3" id="apodExplanation"></p>
+        <p class="grey-text text-darken-3 lighten-3" id="copyright"></p> 
+      </div> 
+    </div>
+    <div class="parallax-container" style="height: 50%; position:static;">
+      <div class="parallax">
+        <img id="apodImage" alt="Nasa APOD">
+      </div>
+    </div>
+</body>
+</html>
