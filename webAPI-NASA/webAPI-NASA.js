@@ -17,6 +17,6 @@ $.get(url,(data)=>{
   })
 });
 
-$(document).ready(()=>{
+$(document).ready(()=>{ //materialize css parallax effect
   $('.parallax').parallax();
 });
