@@ -11,7 +11,7 @@ $.get(url,(data)=>{
     if('copyright' in data){
       $('#copyright').html('Image Credits: ' + data.copyright);
     }else{
-      $('#copyright').html('Image Credits: ' + 'public domain');
+      $('#copyright').html('Image Credits: ' + 'Public Domain');
     }
     $('#apodDate').html(data.date);
   })
