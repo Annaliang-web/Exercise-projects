@@ -1,0 +1,17 @@
+h3{
+  text-align: center;
+  color: darkmagenta;
+}
+#header{
+  color: darkmagenta;
+  background-color: #fff;
+}
+a{
+  background-color: beige;
+  padding: 3%;
+  font: bold;
+  font-size: 1.4em;
+}
+h5{
+  text-align: center;
+}
