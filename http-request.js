@@ -16,5 +16,5 @@ const request = https.get('https://www.azlyrics.com/lyrics/beck/bluemoon.html',(
         }
     })
 })
-//node node-http-client.js
+//node http-request.js
 //curl https://www.google.ca/
